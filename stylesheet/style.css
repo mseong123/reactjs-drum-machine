@@ -1,0 +1,308 @@
+/*properties to amend when changing viewport
+- wrapper .drum-container size (the rest of children will adjust automatically due to % used)
+- .button-wrapper and .button since they are not dependent on container.
+- font properties for pad .button-pad. & .display p & .title & .title>small & .volume-label
+- range-slider styling only configured for firefox and chrome/safari.
+
+
+*/
+
+
+html{
+  height:100%;
+  background: radial-gradient(circle at top,#222,#555);
+}
+
+body {
+  font-family:'Montserrat', sans-serif;
+  
+}
+
+button {
+  outline:none;
+  border:none;
+  cursor: pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+
+.drum-container {
+  margin:0 auto;
+  margin-top:100px;
+  width: 350px;
+  height:300px;
+  background: radial-gradient(circle at top,#444,#111);
+  position:relative;
+  border-radius:4px;
+  box-shadow:0 3px 4px 0 inset #666;
+  border:3px solid #111
+}
+
+
+.title {
+  color:#F0E68C;
+  text-shadow:3px 2px 3px #111;
+  font-size:16px;
+  font-weight:400;
+  padding-left:15px;
+  position:absolute;
+  left:4%;
+  top:6%;
+  margin:0;
+  margin-bottom:5px;
+  border-left:1px solid #F0E68C;
+}
+.title > small {
+  font-size:8px;
+}
+
+.drum-section-container {
+  background: radial-gradient(circle at top,#444,#333);
+  /*background:#444;*/
+  border-radius:4px;
+  position:absolute;
+  box-shadow:0 1px 2px 0 inset #666;
+}
+
+/*switches part*/
+
+
+.switches {
+  top:4%;
+  right:3%;
+  width:40%;
+  height:13%;
+}
+
+.button-container {
+  position:absolute;
+  width:50%;
+  height:100%;
+}
+.on-off {
+  top:20%;
+  left:15%;
+}
+.bank {
+  top:20%;
+  right:-5%;
+}
+
+.button-wrapper {
+  width:35px;
+  height:15px;
+  border-radius:15px;
+  background: radial-gradient(circle at top,#555,#111);
+  box-shadow: 2px 3px 3px 1px #666;
+  position:absolute;
+}
+
+.button {
+  float:left;
+  height:10px;
+  width:10px;
+  border-radius:50%;
+  background: linear-gradient(to left,#999,#c9c9c9);
+  background: conic-gradient(#999,#c9c9c9,#999,#c9c9c9,#999,#c9c9c9,#999);
+  border:2px solid #c9c9c9;
+  box-shadow:0 0 2px 1px #555;
+}
+.right {
+  float:right;
+}
+.label{
+  color:#aaa;
+  font-size:6px;
+  font-weight:600; 
+  text-shadow:1px 1px 1px #aaa;
+  position:absolute;
+}
+
+.label.off {
+  top:28%;
+  left:-5%;
+}
+.label.on {
+  top:28%;
+  left:40%;
+}
+.bank1 {
+  top:28%;
+  left:-15%;
+}
+.bank2 {
+  top:28%;
+  left:40%;
+}
+
+/*pad part*/
+.pad {
+  width:70%;
+  height:76%;
+  right:3%;
+  bottom:4%;
+  display:grid;
+  grid-template-columns: auto auto auto;
+  grid-gap:4%;
+  padding:2%;
+  box-sizing:border-box;
+}
+.button-pad {
+  background: radial-gradient(circle at top,#999,#666);
+  border-radius:5px;
+  border:2px solid #222;
+  box-shadow:0 2px 3px 0 inset #ccc;
+  position:relative;
+  font-size:18px;
+  font-weight:600;
+  color:#222;
+}
+.button-pad>span {
+  display:inline-block;
+  height:8%;
+  width:8%;
+  border-radius:50%;
+  position:absolute;
+  left:10%;
+  top:10%;
+  background-color:#222;
+}
+
+.button-pad.on:active>span {
+  background-color:#00E5EE;
+}
+
+/*display*/
+.display {
+  top:20%;
+  left:3%;
+  width:20%;
+  height:16%;
+  background: linear-gradient(#8c312c,#9a150e);
+  border:3px solid #111;
+  box-shadow:0 2px 3px 0 inset #777,0 0 2px 1px #111;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.display p {
+  color:#ccc;
+  text-shadow:1px 1px 3px #ccc;
+  font-weight:700;
+  font-size:16px;
+  margin:0;
+}
+
+/*volume slider part*/
+.volume {
+  left:3.5%;
+  width:20%;
+  height:55%;
+  bottom:4%;
+  
+}
+.volume input {
+  position:absolute;
+  top:45%;
+  left:-45%;
+  transform:rotate(-90deg);
+  cursor:pointer;
+  -webkit-appearance: none;/*need*/
+  width:160%;
+  background-color:transparent;
+   
+}
+input[type=range]:active,
+input[type=range]:focus {
+  outline:none;
+}
+
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none; /*Also need*/ 
+  width: 10px;
+  height: 20px;
+  margin-top:5px;
+  border-radius:4px;
+  background-color:#111;
+  box-shadow:-1px 0 2px 0 inset #777;
+}
+input[type=range]::-moz-range-thumb {
+  width: 10px;
+  height: 20px;
+  border-radius:4px;
+  background-color:#111;
+  box-shadow:-1px 0 2px 0 inset #777;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  border-bottom:2px solid #111;
+  height:18px;
+}
+
+input[type=range]::-moz-range-track {
+  border-bottom:2px solid #111;
+}
+
+.volume-label {
+  position:absolute;
+  color:#aaa;
+  font-weight:600; 
+  text-shadow:1px 1px 1px #aaa;
+  font-size:8px; 
+  top:15%;
+  right:10%;
+  width:30%;
+  height:80%;
+  margin:0;
+}
+
+@media (min-width:768px) {
+  .drum-container {
+      width: 500px;
+      height:400px;
+  }
+  .button-wrapper {
+      width:45px;
+      height:20px;
+      border-radius:20px;
+  }
+  .button {
+      height:15px;
+      width:15px;
+  }
+  .label{
+      font-size:8px;
+      font-weight:700; 
+  }
+  .button-pad {
+      font-size:20px;
+      font-weight:700;
+  }
+  .display p {
+      color:#ccc;
+      text-shadow:1px 1px 3px #ccc;
+      font-weight:800;
+      font-size:20px;
+      margin:0;
+  }
+  input[type=range]::-webkit-slider-thumb{
+      width: 15px;
+      height: 25px;
+      margin-top:3px;
+  }
+  input[type=range]::-moz-range-thumb {
+      width: 15px;
+      height: 25px;
+  }
+  .volume-label {
+      font-weight:700; 
+      font-size:11px; 
+  }
+  .title {
+      font-size:20px;
+  }
+  .title > small {
+      font-size:10px;
+  }
+}
